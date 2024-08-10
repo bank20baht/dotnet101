@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-
-public class CleanDotnetContext : DbContext
+using CleanDotnet.Model;
+public class AppDBContext : DbContext
 {
-    public CleanDotnetContext(DbContextOptions<CleanDotnetContext> options)
+    public AppDBContext(DbContextOptions<AppDBContext> options)
         : base(options)
     {
     }

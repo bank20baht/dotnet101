@@ -7,7 +7,7 @@ public class AppDBContext : DbContext
     {
     }
 
-        protected override void OnModelCreating(ModelBuilder builder)
+    protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
     }

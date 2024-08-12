@@ -14,33 +14,33 @@ public class UserService
         _userRepository = userRepository;
     }
 
-    public async Task<IResult> List()
+    public async Task<List<User>> List()
     {
         var users = await _userRepository.List();
-        return TypedResults.Ok(users);
+        return users;
     }
 
-    public async Task<IResult> getById(int id)
+    public async Task<User?> getById(int id)
     {
         var user = await _userRepository.getById(id);
-        return TypedResults.Ok(user);
+        return user;
     }
 
-    public async Task<IResult> CreateUser(User user)
+    public async Task<User?> CreateUser(User user)
     {
         var users = await _userRepository.createUser(user);
-        return TypedResults.Created("success", users);
+        return users;
     }
 
-    public async Task<IResult> remove(int id)
+    public async Task<User?> remove(int id)
     {
         var users = await _userRepository.remove(id);
-        return TypedResults.Ok("");
+        return users;
     }
 
-    public async Task<IResult> updateById(int id, User user)
+    public async Task<Boolean> updateById(int id, User user)
     {
         var users = await _userRepository.updateById(id, user);
-        return TypedResults.Ok("");
+        return users;
     }
 }

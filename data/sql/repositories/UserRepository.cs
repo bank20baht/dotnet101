@@ -20,9 +20,7 @@ public class UserRepository : IUserRepository
 
     public async Task<User?> getById(int id)
     {
-        var exisitingUser = await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == id);
-
-        return exisitingUser;
+        return await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == id);
     }
 
     public async Task<User?> createUser(User user)
@@ -37,12 +35,12 @@ public class UserRepository : IUserRepository
 
     public async Task<User?> remove(int id)
     {
-        var existingUser = await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == id);
+        var updateUser = await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == id);
 
-        _dbContext.Users.Remove(existingUser);
+        _dbContext.Users.Remove(updateUser);
         await _dbContext.SaveChangesAsync();
 
-        return existingUser;
+        return updateUser;
     }
 
     public async Task<Boolean> updateById(int id, User user)

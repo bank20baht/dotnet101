@@ -1,6 +1,6 @@
 using CleanDotnet.Services;
 using CleanDotnet.Model;
-using Azure;
+
 public static class UserController
 {
     public static void UseUserController(this IEndpointRouteBuilder routes)
